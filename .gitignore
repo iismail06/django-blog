@@ -2,6 +2,7 @@
 codestar_blog/
 .venv/
 .env
+env.py
 
 # Python cache
 __pycache__/
