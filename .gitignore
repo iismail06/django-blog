@@ -1,0 +1,25 @@
+# Virtual environment
+codestar_blog/
+.venv/
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite database (local dev only)
+db.sqlite3
+
+# Logs
+*.log
+
+# Django static/media
+media/
+staticfiles/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
