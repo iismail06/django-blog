@@ -14,6 +14,10 @@ from pathlib import Path
 import os
 import sys
 from pathlib import Path
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env
+
 
 # Import env.py if it exists (local only)
 if os.path.exists(os.path.join(os.path.dirname(__file__), '..', 'env.py')):
@@ -28,12 +32,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&m%rxzw2za5a=53nup&w7yk0l8$7$6uhn#4lka=wglx)e5ul2w'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG').capitalize() == 'True' if 'DEBUG' in os.environ else False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Heroku']
 
 
 # Application definition
@@ -82,13 +86,16 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+#DATABASES = {
+  #  'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
 
+DATABASES = {
+    'default': dj_database_url.config(default=os.environ.get("DATABASE_URL"))
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
