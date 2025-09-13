@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import sys
-from pathlib import Path
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
@@ -37,7 +36,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG').capitalize() == 'True' if 'DEBUG' in os.environ else False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'Heroku']
+ALLOWED_HOSTS = ['127.0.0.1', 'myapp.herokuapp.com']
 
 
 # Application definition
@@ -102,6 +101,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com"
 ]
 
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -136,7 +136,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# Static files (CSS, JavaScript, Images)
+# URL used in templates
 STATIC_URL = 'static/'
+
+# Folder where static files will be collected when deploying (e.g., Heroku)
+# This is used by 'python manage.py collectstatic' to gather all static files in one place
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
