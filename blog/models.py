@@ -18,6 +18,9 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)  # must exist
     excerpt = models.TextField(blank=True)
 
+    class Meta:
+        ordering = ["-created_on"]  # newest posts first
+
     def __str__(self):
         return self.title
 
@@ -30,6 +33,9 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['created_on']   # oldest comments first
+
     def __str__(self):
-        return f'Comment by {self.author} on {self.post}'
+        return f'Comment by {self.author} on {self.post}'       
 
