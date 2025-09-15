@@ -3,6 +3,7 @@ codestar_blog/
 .venv/
 .env
 env.py
+blog/fixtures/
 
 # Python cache
 __pycache__/
