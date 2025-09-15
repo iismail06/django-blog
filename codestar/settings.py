@@ -141,6 +141,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # URL used in templates
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
 # Folder where static files will be collected when deploying (e.g., Heroku)
 # This is used by 'python manage.py collectstatic' to gather all static files in one place
