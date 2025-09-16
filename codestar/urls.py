@@ -16,12 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from blog import views
+from events import views as event_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path("", include('blog.urls'), name = "blog-urls"),
-    path("events/<int:event_id>/", views.event_detail, name="event_detail")
+    path("events/<int:event_id>/", event_views.event_detail, name="event_detail")
 
 ]
