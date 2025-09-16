@@ -39,7 +39,14 @@ DEBUG = os.environ.get('DEBUG').capitalize() == 'True' if 'DEBUG' in os.environ 
 # Only enforce these security settings if DEBUG is False (i.e., in production)
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'myapp.herokuapp.com', 'localhost']
+# ALLOWED_HOSTS = ['127.0.0.1', 'myapp.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'myapp.herokuapp.com',  # optional
+    'codestarblog-django-blog-0916ded79d88.herokuapp.com',
+]
+
 
 
 # Application definition
