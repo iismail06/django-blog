@@ -11,12 +11,13 @@
             <h2>{{ about.title }}</h2>
             <!-- Content goes directly underneath this -->
             <p>{{ about.content }}</p>
+            <!-- Updated on field -->
         </div>
     </div>
     <div class="row">
         <div class="col text-right">
             <!-- Updated on field goes in here -->
-            <p class="text-end"><em>Updated on: </em></p>
+            <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
         </div>
       </div>
 </div>

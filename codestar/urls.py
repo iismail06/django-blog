@@ -16,19 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from events import views as event_views
+# from events import views as event_views
 
 urlpatterns = [
+    path('about/', include('about.urls'), name='about-urls'),  # New about app URLs
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    
-    # Include blog URLs at root
-    path('', include('blog.urls'), name='blog'),  # This lets blog handle '' and '<slug:slug>/'
-    
+  
+    path('', include('blog.urls'), name='blog'),   # Include blog URLs at root
     # Events
-    path('events/<int:event_id>/', event_views.event_detail, name='event_detail'),
-
-    # About
-    path('about/', include('about.urls'), name='about'),  # New about app URLs
+    # path('events/<int:event_id>/', event_views.event_detail, name='event_detail'),
 ]
 
