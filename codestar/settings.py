@@ -37,10 +37,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG').capitalize() == 'True' if 'DEBUG' in os.environ else False
 # Only enforce these security settings if DEBUG is False (i.e., in production)
-if not DEBUG:
-    SECURE_SSL_REDIRECT = True      # Redirect HTTP to HTTPS
-    CSRF_COOKIE_SECURE = True       # CSRF cookies only sent over HTTPS
-    SESSION_COOKIE_SECURE = True    # Session cookies only sent over HTTPS
+
 
 ALLOWED_HOSTS = ['127.0.0.1', 'myapp.herokuapp.com', 'localhost']
 
