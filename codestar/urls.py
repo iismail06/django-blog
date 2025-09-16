@@ -15,14 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 from events import views as event_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path('', include('blog.urls')),
-    # path("posts", include('blog.urls'), name = "blog-urls"),
-    # path("events/<int:event_id>/", event_views.event_detail, name="event_detail")
-
+    
+    # Include blog URLs at root
+    path('', include('blog.urls')),  # This lets blog handle '' and '<slug:slug>/'
+    
+    # Events
+    path('events/<int:event_id>/', event_views.event_detail, name='event_detail'),
 ]
+
