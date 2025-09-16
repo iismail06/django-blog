@@ -23,9 +23,12 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     
     # Include blog URLs at root
-    path('', include('blog.urls')),  # This lets blog handle '' and '<slug:slug>/'
+    path('', include('blog.urls'), name='blog'),  # This lets blog handle '' and '<slug:slug>/'
     
     # Events
     path('events/<int:event_id>/', event_views.event_detail, name='event_detail'),
+
+    # About
+    path('about/', include('about.urls'), name='about'),  # New about app URLs
 ]
 
