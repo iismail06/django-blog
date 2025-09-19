@@ -15,6 +15,9 @@ import os
 import sys
 from django.contrib.messages import constants as messages
 import dj_database_url
+
+
+# Import env.py if it exists (production only)
 if os.path.isfile('env.py'):
     import env
 
@@ -126,6 +129,12 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(default=os.environ.get("DATABASE_URL"))
 }
+
+# Use SQLite for tests
+if 'test' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+
+# Password validation
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
     "https://*.herokuapp.com"
