@@ -3,6 +3,16 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Event(models.Model):
+    """Model for storing event information.
+
+    Args:
+        models (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+
+
     event_name = models.CharField(max_length=200, unique=True)
     location = models.CharField(max_length=200)
     date = models.DateTimeField()
@@ -12,6 +22,16 @@ class Event(models.Model):
 
 
 class Ticket(models.Model):
+    """Model for storing event ticket information.
+
+    Args:
+        models (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+
+
     ticket_holder = models.ForeignKey(
         User,
         on_delete=models.CASCADE,

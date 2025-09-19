@@ -6,6 +6,16 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
 class Post(models.Model):
+    """Post model for storing blog posts.
+
+    Args:
+        models (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    
+
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
@@ -29,6 +39,16 @@ class Post(models.Model):
 
 # Comment model
 class Comment(models.Model):
+    """Comment model for storing blog comments.
+
+    Args:
+        models (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+
+
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
     body = models.TextField()

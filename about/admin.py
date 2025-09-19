@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import About, CollaborateRequest  # Import the About and CollaborateRequest models
 from django_summernote.admin import SummernoteModelAdmin  # Import SummernoteModelAdmin
+from .models import About, CollaborateRequest  # Import the About and CollaborateRequest models
 
 
 # Register your models here.
